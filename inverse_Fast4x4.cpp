@@ -11,11 +11,12 @@ int main() {
 
     Matrix4 dst;
 
-    volatile float sink;
+    
     for (int i = 0; i < 1000000000; i++) {
         dst = GetInverse(src);
-        sink = dst.m[0][0];  
+    
     }
 
     return 0;
+
 }
