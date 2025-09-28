@@ -32,14 +32,14 @@ FAST4X4_H.cpp
 
 Utiliza uma matriz [4][4] com acesso sequencial linha por linha, o que favorece a localidade espacial.
 Toda a matriz é pequena o suficiente para caber no cache L1, reduzindo drasticamente os cache misses.
-Resultado: tempo de execução muito previsível e eficiente, aproveitando ao máximo o cache, mesmo sem instruções SIMD complexas.
+o resultado é um tempo de execução muito eficiente, aproveitando ao máximo o cache, mesmo sem instruções SIMD complexas.
 
 invert4x4_llvm.h
 
 Utiliza um array linear [16] combinado com operações vetoriais (SIMD) e shuffles, que frequentemente acessam elementos não contíguos na memória.
 Isso quebra a localidade espacial, gerando mais cache misses, e faz com que a CPU precise buscar dados na memória com mais frequência.
 Apesar do uso de SIMD, que processa múltiplos elementos em paralelo, a sobrecarga de acessos não sequenciais pode diminuir a eficiência do cache.
-Resultado: em algumas arquiteturas, o tempo de execução pode ser comparativamente maior ou menos previsível do que FAST4X4, mesmo sendo otimizado para vetores.
+Como resultado temos o tempo de execução comparativamente maior do que FAST4X4, mesmo sendo otimizado para vetores.
 
 
 
